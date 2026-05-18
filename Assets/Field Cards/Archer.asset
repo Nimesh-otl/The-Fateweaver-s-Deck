@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Archer
   cardType: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: cdda01c8fe5953146a48fc409371e986, type: 3}
   health: 4
   damageMin: 3
   damageMax: 5
   stamina: 6
   canBeReward: 0
   damageType: 1
+  nextSceneName: 

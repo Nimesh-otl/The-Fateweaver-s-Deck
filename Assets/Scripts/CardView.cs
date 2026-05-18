@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 /// Attached to each card prefab in the ring.
 /// Displays the card data and handles the hover/click visual feedback.
-public class CardView : MonoBehaviour
+public class CardView : MonoBehaviour, IPointerClickHandler
 {
     [Header("UI References")]
     public Image cardArtImage;
@@ -36,15 +37,36 @@ public class CardView : MonoBehaviour
 
     public void Refresh()
     {
+        {
+            if (cardData == null) return;
+
+            cardNameText.text = cardData.cardName;
+
+            // Hide HP and DMG for non-enemy cards
+            bool isEnemy = cardData.cardType == CardType.BasicEnemy ||
+                           cardData.cardType == CardType.RangedEnemy ||
+                           cardData.cardType == CardType.Mimic;
+
+            if (healthText) healthText.gameObject.SetActive(isEnemy);
+            if (damageText) damageText.gameObject.SetActive(isEnemy);
+
+            if (cardArtImage && cardData.cardArt)
+                cardArtImage.sprite = cardData.cardArt;
+        }
         if (cardData == null) return;
 
         cardNameText.text   = cardData.cardName;
-        healthText.text     = $"HP: {cardData.health}";
+        healthText.text     = $"{cardData.health}";
         damageText.text     = $"DMG: {cardData.damageMin}-{cardData.damageMax}";
         cardTypeText.text   = cardData.cardType.ToString();
 
         if (cardArtImage && cardData.cardArt)
             cardArtImage.sprite = cardData.cardArt;
+    }
+
+    public void UpdateHP(int currentHP)
+    {
+        if (healthText) healthText.text = currentHP.ToString();
     }
 
     public void SetCenter(bool center)
@@ -58,7 +80,14 @@ public class CardView : MonoBehaviour
     // Called by Unity UI Button component on this prefab
     public void OnCardClicked()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.sfxCardClick);
         if (isCenter)
             ringManager.InteractWithCenter();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OnCardClicked();
     }
 }

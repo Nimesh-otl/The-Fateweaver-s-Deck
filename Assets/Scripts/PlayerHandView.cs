@@ -13,8 +13,11 @@ public class PlayerHandView : MonoBehaviour
     public List<PlayerCard> startingHand;   // Drag your PlayerCard SOs here
 
     [Header("Selection UI")]
+    // [Optional]
     public GameObject confirmPanel;         // Panel shown when a card is selected
+    // [Optional]
     public TextMeshProUGUI selectedNameText;
+    // [Optional]
     public TextMeshProUGUI selectedDescText;
     public Button confirmButton;
     public Button cancelButton;
@@ -27,7 +30,10 @@ public class PlayerHandView : MonoBehaviour
 
     void Start()
     {
-        confirmPanel.SetActive(false);
+        if (confirmPanel != null)
+        {
+            confirmPanel.SetActive(false);
+        }
         confirmButton.onClick.AddListener(OnConfirm);
         cancelButton.onClick.AddListener(OnCancel);
         BuildHand();
@@ -88,23 +94,40 @@ public class PlayerHandView : MonoBehaviour
         {
             // Clicking same card again deselects
             selectedItem = null;
-            confirmPanel.SetActive(false);
+            if (confirmPanel != null)
+            {
+                confirmPanel.SetActive(false);
+            }
             return;
         }
 
         selectedItem = item;
         selectedItem.SetSelected(true);
 
-        selectedNameText.text = item.cardData.cardName;
-        selectedDescText.text = item.cardData.description;
-        confirmPanel.SetActive(true);
+        if (selectedNameText != null)
+        {
+            selectedNameText.text = item.cardData.cardName;
+        }
+
+        if (selectedDescText != null)
+        {
+            selectedDescText.text = item.cardData.description;
+        }
+
+        if (confirmPanel != null)
+        {
+            confirmPanel.SetActive(true);
+        }
     }
 
     void OnCancel()
     {
         if (selectedItem != null) selectedItem.SetSelected(false);
         selectedItem = null;
-        confirmPanel.SetActive(false);
+        if (confirmPanel != null)
+        {
+            confirmPanel.SetActive(false);
+        }
     }
 
     void OnConfirm()
@@ -119,13 +142,19 @@ public class PlayerHandView : MonoBehaviour
             spawnedItems.Remove(selectedItem);
             Destroy(selectedItem.gameObject);
             selectedItem = null;
-            confirmPanel.SetActive(false);
+            if (confirmPanel != null)
+            {
+                confirmPanel.SetActive(false);
+            }
             LayoutFan();    // re-fan the remaining cards
         }
         else
         {
             // Card couldn't be used (e.g. magic blast outside combat)
-            selectedDescText.text = "Can't use that right now!";
+            if (selectedDescText != null)
+            {
+                selectedDescText.text = "Can't use that right now!";
+            }
         }
     }
 

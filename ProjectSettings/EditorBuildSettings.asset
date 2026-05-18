@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/The_Fool.unity
+    guid: afaaf5234ed201c45ad4d467a90d8442
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 4a8e48c26da12b64f99ea2b92d8153e2
+  - enabled: 1
+    path: Assets/Scenes/The_Lovers.unity
+    guid: 31043021c02ac51499ad8f527bf0e92c
+  - enabled: 1
+    path: Assets/Scenes/The_Hermit.unity
+    guid: b9547be8045bd474ba726d9e15047b4c
+  - enabled: 1
+    path: Assets/Scenes/The_Devil.unity
+    guid: 59d2bf404355984498b30a75a8904a95
+  - enabled: 1
+    path: Assets/Scenes/The_Moon.unity
+    guid: dd519abbee4ff814c8358d58772b54ac
+  - enabled: 1
+    path: Assets/Scenes/The_Tower.unity
+    guid: 4d02004fc6a71e84987e2acfe6ce6aef
   m_configObjects: {}

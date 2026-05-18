@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerName: The Fool
-  maxHealth: 21
+  maxHealth: 20
   damageMin: 2
   damageMax: 4
   stamina: 5

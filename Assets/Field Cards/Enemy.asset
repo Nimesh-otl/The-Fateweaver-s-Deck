@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Thread Thrall
   cardType: 0
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 4dfe739eb5dc6fc4a9af2161d7489373, type: 3}
   health: 6
   damageMin: 2
   damageMax: 4
   stamina: 3
   canBeReward: 0
   damageType: 0
+  nextSceneName: 

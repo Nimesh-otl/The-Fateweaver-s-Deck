@@ -42,28 +42,22 @@ public class PlayerCardItemView : MonoBehaviour
         // Value label
         cardValueText.text = cardData.cardType switch
         {
-            PlayerCardType.HealthPotion  => $"+{cardData.value} HP",
-            PlayerCardType.StaminaPotion => $"+{cardData.value} STM",
+            PlayerCardType.HealthPotion  => $"+{cardData.value} ",
+            PlayerCardType.StaminaPotion => $"+{cardData.value} ",
             PlayerCardType.Shield        => $"Block {cardData.value}",
-            PlayerCardType.MagicBlast    => $"{cardData.value} DMG",
+            PlayerCardType.MagicBlast    => $"{cardData.value}",
             _                            => cardData.value.ToString()
         };
 
-        // Background tint
-        if (cardBackground)
-        {
-            cardBackground.color = cardData.cardType switch
-            {
-                PlayerCardType.HealthPotion  => ColourHealth,
-                PlayerCardType.StaminaPotion => ColourStamina,
-                PlayerCardType.Shield        => ColourShield,
-                PlayerCardType.MagicBlast    => ColourMagic,
-                _                            => Color.white
-            };
-        }
+        if (cardBackground != null)
+            cardBackground.color = new Color(0f, 0f, 0f, 0f);
 
-        if (cardArtImage && cardData.cardArt)
-            cardArtImage.sprite = cardData.cardArt;
+        if (cardArtImage != null)
+        {
+            cardArtImage.color = Color.white;
+            if (cardData.cardArt != null)
+                cardArtImage.sprite = cardData.cardArt;
+        }
     }
 
     // Called by Unity Button on this prefab

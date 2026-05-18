@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a176deb7b4b737549916ed94ef1bf805
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - startMenuPanel: {instanceID: 0}
+  - pauseMenuPanel: {instanceID: 0}
+  - optionsPanel: {instanceID: 0}
+  - startButton: {instanceID: 0}
+  - startOptionsButton: {instanceID: 0}
+  - startQuitButton: {instanceID: 0}
+  - pausePlayButton: {instanceID: 0}
+  - pauseOptionsButton: {instanceID: 0}
+  - pauseQuitButton: {instanceID: 0}
+  - optionsBackButton: {instanceID: 0}
+  - customCursor: {fileID: 2800000, guid: 2899a4649665cfb4886ffef7b84bd842, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

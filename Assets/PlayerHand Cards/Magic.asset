@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Magic
   cardType: 3
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: b8407d8a4b4bd55429b00050b6c7d85d, type: 3}
   description: Deals 5 Magic Damage
   value: 5

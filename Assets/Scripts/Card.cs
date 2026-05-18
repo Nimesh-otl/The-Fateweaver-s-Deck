@@ -19,6 +19,9 @@ public class Card : ScriptableObject
     public bool canBeReward;        // Mimic only: 50% chance to drop loot instead
     public DamageType damageType;
 
+    [Header("Scene Transition")]
+    public string nextSceneName;    // Exit only: scene to load
+
     // Helper: roll damage this turn
     public int RollDamage()
     {

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Shield
   cardType: 2
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: a8436cfee78108b4c8c090360710839d, type: 3}
   description: Blocks Next attack
   value: 1
